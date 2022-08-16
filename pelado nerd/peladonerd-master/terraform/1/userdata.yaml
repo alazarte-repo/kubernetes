@@ -1,0 +1,13 @@
+#cloud-config
+# Documento acerca de este lenguaje:
+# https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+package_update: true
+packages:
+  - docker.io
+write_files:
+  - path: /root/index.html
+    content: |
+      Sos un capo de terraform
+runcmd:
+  - cd /root
+  - docker run -d -v /root/index.html:/usr/share/nginx/html/index.html -p 80:80 nginx

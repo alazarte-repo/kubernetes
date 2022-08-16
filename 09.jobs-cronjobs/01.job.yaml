@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ls
+  namespace: jobs-and-cronjobs
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: k8s.gcr.io/busybox
+        command: ["ls"]
+      restartPolicy: Never
+  # backoffLimit: 4 bandeja que establece un número de intentos en el caso de que la creación del job falle

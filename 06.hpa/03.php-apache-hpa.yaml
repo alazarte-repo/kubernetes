@@ -1,0 +1,32 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+  # namespace: hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 9
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+
+# Existe un endpoint que tiene el controlador (/metrics) que lleva adelante la captura de métricas de ejecución de todos los pods.
+# Pegandole a ese endpoint obtengo las estadisticas
+
+#  Previamente para ejecutar HPA será necesario habilitar esta configuración, esto depende del proveedor de Kubernetes que estemos utilizando.
+# Por ejemplo si utilizamos minikube basta con descargar un addon, plugin y listo. 
+# En nuestro caso, al tener un clúster de kubernetes en un proveedor cloud (digital ocean), se instalo una aplicación que ofrece la plataforma llamada "Kubernetes Metrics Server" (https://marketplace.digitalocean.com/apps/kubernetes-metrics-server)
+  #  Si deseamos revisar el log del servicio encargado de tomar las métricas deebos hacer kubectl logs -f metrics-server -n kube-system
+
+# Es muy importante que el droplet que contiene el clúster de kubernetes tenga los requerimientos de HW para soportar las replicas
+# Otro punto al destacar es que al realizar la configuración del la app de métricas es que los pods esten corriendo
+
+# Para poner a correr los pods se ejecuto while(1) { Invoke-WebRequest -Uri http://128.199.52.139:30000/ }; a través de linea de comando

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  namespace: secrets
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: myapp
+  template:
+    metadata:
+      labels:
+        role: myapp # Esta es la etiqueta que tendran los pods creados por el deployment
+    spec:
+      containers:
+      - name: myapp
+        image: adriandockerimg/push_test:1.0
+        imagePullPolicy: Always # Esta etiqueta se coloca para que la imagen del Docker Hub se descargue siempre
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      imagePullSecrets:
+        - name: docker-secret # Con esta etiqueta y el nombre del Secret creado en el namespace donde correran los pods, el deployment descargara la imagen del repo le permitira autenticarse sin problemas

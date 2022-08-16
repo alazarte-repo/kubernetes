@@ -1,0 +1,8 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nodeport
+# El término servicio en kubernetes tiene como definición el ser una abstracción que define un set lógico de pods basado en una política.
+  # Una política puede ser a traves de una etiqueta entre los distintos pods para discriminar cuales sí y cuales no
+# Un servicio que crea un puerto especifico al servicio en cada nodo
+# La desventaja es que debemos apuntar la IP pública de cada uno de los workers para llegar a ese puerto

@@ -1,0 +1,5 @@
+ADD file:9233f6f2237d79659a9521f7e390df217cec49f1a8aa3a12147bbca1956acdb9 in / 
+CMD ["/bin/sh"]
+COPY file:dc9db609f9ada659303c1108a47339fe1f74ae312d128a5b77dd8b7536ab5c33 in .
+ENV PORT=8080
+CMD ["./hello-app"]

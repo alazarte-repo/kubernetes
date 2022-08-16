@@ -1,0 +1,25 @@
+Step 1: Install kubectl
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+    Quizás hay que instalar Minikube
+
+Step 2: Make Digital Ocean Account
+
+Step 3: Download kubeconfig
+
+Step 4: Run in terminal:
+    kubectl --kubeconfig=/<pathtodirectory>/k8s-1-23-9-do-0-sfo3-1659560625184-kubeconfig.yaml get nodes
+    Es necesario agregarlo en el directorio .kube/config(éste es un archivo sin extensión) por lo que el comando, si me paro sobre el directorio, quedaria de la siguiente manera:
+        kubectl --kubeconfig=k8s-1-23-9-do-0-sfo3-1659560625184-kubeconfig.yaml get nodes
+    Una vez montado, si deseo obtener más información ingreso en la terminal: 
+        kubectl get nodes -o wide
+    Si tengo problemas para visualizar el contexto
+        kubectl config get-contexts
+    Si deseo saber el contexto actual
+        kubectl config current-context
+    Si deseo cambiar el contexto por otro
+        kubectl config use-context do-ams3-k8s-1-23-9-do-0-ams3-1659985726957
+    Eliminar un contexto
+        kubectl config delete-context my-cluster-context
+
+# Describir un Pod
+    kubectl -n nginx-ingress(nombre del namespace) describe pod rc-2plv9(nombre del pod)

@@ -1,0 +1,8 @@
+# https://www.youtube.com/watch?v=5gSc1ouW8rM
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: readiness
+# Sirve para saber si el pod esta listo para recibir tráfico. NO reinicia el pod ni crea uno nuevo, a diferencia del Liveness Probe
+# Es util si una aplicación tarde un poco al iniciar porque debe realizar configuraciones, adquirir recursos, etc. 
+# Un ejemplo es la conexión que tiene una aplicación que corre desde el contenedor y se conecta a una base de datos.

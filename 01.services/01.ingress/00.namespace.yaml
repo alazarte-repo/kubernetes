@@ -1,0 +1,8 @@
+# https://www.youtube.com/watch?v=pzFirwIpMag
+# https://www.youtube.com/watch?v=NPFbYpb0I7w
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nginx-ingress
+# Es un nginx que corre como un servicio (del tipo Nodeport), que recibe el trafico y redirige el trafico hacia los demás servicios (Proxy Pass).
+# Otorga cierta flexibilidad a la hora de poder operar cuestiones de mayor complejidad requeridas y que un Load Balancer de las plataformas Cloud no podrian cubrir.

@@ -1,0 +1,26 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: wordpress 
+  namespace: nodeport
+spec:
+  replicas: 1 # Cantidad de pods a correr en el namespace/cluster/nodo, sino se coloca el predeterminado es 1
+  template:
+    metadata:
+      labels:
+        role: wordpress 
+    spec:
+      containers:
+      - name: wordpress 
+        image: wordpress:php7.1-apache
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+# A diferencia de los pods creados manualmente, los pods mantenidos por un ReplicationController se reemplazan automáticamente si fallan, se eliminan o finalizan. 
+  # Una buena práctica es crear pods a través de un ReplicationController
+# El replication controller creara un pod de forma automatica por lo que le asignara al mismo un nombre aleatorio
+# Chequear el estado de un ReplicationController: 
+  # kubectl describe replicationcontrollers/nginx
+
+# La desventaja es que hay que estar buscando la IP Pública del nodo y no seria muy automático

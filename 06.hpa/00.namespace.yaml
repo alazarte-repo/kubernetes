@@ -1,0 +1,7 @@
+# https://www.youtube.com/watch?v=T6wRsmrm_gk
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: hpa
+# Horizontal Pod Autoscaler permite la creación de reglas en base a los recursos disponibles y aumenta o disminuye la cantidad de pods que existen en base a estas reglas
+# Se aplica a los deployment. Y lo podemos utilizar por ejemplo para incrementar la cantidad de pods en horario diurno que hay más carga.
