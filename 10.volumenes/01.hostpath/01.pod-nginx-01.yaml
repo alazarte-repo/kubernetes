@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-01
+  namespace: hostpath
+  labels:
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html #  Montalo en esta ruta
+      name: www-volume #  Toma este volumen (que esta declarado más abajo)
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+
+  volumes:
+  - name: www-volume
+    hostPath:
+      path: /usr/share/nginx/html # Directory location on host, not in the pod
+      type: Directory # Existen otros tipos

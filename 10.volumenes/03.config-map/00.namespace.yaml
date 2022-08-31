@@ -1,0 +1,7 @@
+
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: configmap
+
+# Es una configuración que esta en el namespace y que los pods pueden tomarlo para sí. Se comparte como si fuera un fichero

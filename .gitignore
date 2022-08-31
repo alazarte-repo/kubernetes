@@ -1,0 +1,8 @@
+12.terraform/.terraform
+12.terraform/terraform.tfstate
+12.terraform/terraform.tfstate.backup
+12.terraform/.terraform.lock.hcl
+14.ci-cd-with-circle-ci/.terraform
+14.ci-cd-with-circle-ci/terraform.tfstate
+14.ci-cd-with-circle-ci/terraform.tfstate.backup
+14.ci-cd-with-circle-ci/.terraform.lock.hcl

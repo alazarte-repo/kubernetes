@@ -8,7 +8,7 @@ Step 3: Download kubeconfig https://kubernetes.io/docs/reference/generated/kubec
 
 Step 4: Run in terminal:
     kubectl --kubeconfig=/<pathtodirectory>/k8s-1-23-9-do-0-ams3-1659985726957-kubeconfig.yaml get nodes
-    Es necesario agregarlo en el directorio .kube/config(éste es un archivo sin extensión) por lo que el comando, si me paro sobre el directorio, quedaria de la siguiente manera:
+    Es necesario agregarlo en el directorio .kube/config(éste es un archivo sin extensió y es donde se guarda parte de la configuracion de los archivos <nombre>-kubeconfig.yaml que se generan, aqui hay que añadirlo para que aparezcan en los comandos</nombre>) por lo que el comando, si me paro sobre el directorio, quedaria de la siguiente manera:
         kubectl --kubeconfig=k8s-1-23-9-do-0-ams3-1659985726957-kubeconfig.yaml get nodes
     Una vez montado, si deseo obtener más información ingreso en la terminal: 
         kubectl get nodes -o wide

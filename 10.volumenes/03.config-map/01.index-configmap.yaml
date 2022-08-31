@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-html
+  namespace: configmap
+data:
+  index.html: |-
+    Hola soy una configmap. Probando la actualización de la configuración.
+    De esta forma puedo pasar archivos o configuraciones a los pods. 
+    Actualizando el configmap y entrando a un pod, éste automaticamente se actualiza.
