@@ -1,0 +1,6 @@
+# https://www.youtube.com/watch?v=q-ZicDSb3Cc
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: deployment
+# 
