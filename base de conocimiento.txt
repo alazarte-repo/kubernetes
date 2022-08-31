@@ -4,12 +4,12 @@ Step 1: Install kubectl
 
 Step 2: Make Digital Ocean Account
 
-Step 3: Download kubeconfig
+Step 3: Download kubeconfig https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
 
 Step 4: Run in terminal:
-    kubectl --kubeconfig=/<pathtodirectory>/k8s-1-23-9-do-0-sfo3-1659560625184-kubeconfig.yaml get nodes
+    kubectl --kubeconfig=/<pathtodirectory>/k8s-1-23-9-do-0-ams3-1659985726957-kubeconfig.yaml get nodes
     Es necesario agregarlo en el directorio .kube/config(éste es un archivo sin extensión) por lo que el comando, si me paro sobre el directorio, quedaria de la siguiente manera:
-        kubectl --kubeconfig=k8s-1-23-9-do-0-sfo3-1659560625184-kubeconfig.yaml get nodes
+        kubectl --kubeconfig=k8s-1-23-9-do-0-ams3-1659985726957-kubeconfig.yaml get nodes
     Una vez montado, si deseo obtener más información ingreso en la terminal: 
         kubectl get nodes -o wide
     Si tengo problemas para visualizar el contexto
@@ -20,6 +20,16 @@ Step 4: Run in terminal:
         kubectl config use-context do-ams3-k8s-1-23-9-do-0-ams3-1659985726957
     Eliminar un contexto
         kubectl config delete-context my-cluster-context
+    Visualizar información del contexto actual (https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable)
+        kubectl config view
+
+
+PS kubectl config get-contexts
+CURRENT   NAME                                         CLUSTER          AUTHINFO         NAMESPACE
+*         do-ams3-k8s-1-23-9-do-0-ams3-1659985726957
+          docker-desktop                               docker-desktop   docker-desktop
+PS kubectl config delete-context docker-desktop 
+deleted context docker-desktop from C:\Users\alazarte\.kube\config --Acá me dio la ruta en donde esta el config de kubernetes. Simplemente reemplazo por los datos de mi cluster y listo.
 
 # Describir un Pod
     kubectl -n nginx-ingress(nombre del namespace) describe pod rc-2plv9(nombre del pod)

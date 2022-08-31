@@ -27,54 +27,51 @@ docker run o simplemente ejecutar en el Dashboard
 	Versión especifica:
 	apk add nodejs@version
 	
-Copiar los archivos de la API al contenedor, para ello el contenedor debe estar stopeado
-docker cp C:\BP4\FaceRecognition\apifacerecognition 6a8007b5489a:/api
+# Imágenes
+	Construir una imagen en docker
+		Generar el archivo Dockerfile y correr dentro del directorio de la API:
+		docker build -t apiface_test .
 	
-Levantar una imagen (depende si son contenedores Windows o Linux)
-docker run c855470133c0 -p 8080:8080
+	Ver todas las imagenes
+		docker images
 
-Guardar los cambios en un contenedor 
+	Eliminar una imagen en docker
+		docker rmi --force imagen
+		
+	Correr una imagen en docker
+		docker run -it -p 5000:5000 -d apiface_test --anda 03/02/22
+		docker run -it -d apiface_test -p 5000:5000 --anda
+		docker run -p 5000:5000 apiface_test
+		
+		Levantar una imagen (depende si son contenedores Windows o Linux)
+		docker run c855470133c0 -p 8080:8080
+		
+# Contenedores
+	Ejecutar un contenedor que se encuentra parado
+		docker start nombre_container
+		
+	Visualizar todos los containers
+		docker container ls --all
 
-Eliminar una imagen en docker
-docker rmi --force imagen
+	Eliminar un contenedor especifico:
+		docker container rm --force contenedor
 
-#Ejecutar un contenedor que se encuentra parado
-docker start nombre_container
+	Revisar el log de un contenedor
+		docker container logs --details contenedor
+		docker logs --tail 100 -f contenedor
+		
+	Copiar los archivos de la API al contenedor, para ello el contenedor debe estar stopeado
+		docker cp C:\BP4\FaceRecognition\apifacerecognition 6a8007b5489a:/api
+		
+	Ejecutar en el cmd del contenedor
+		docker exec -it 2a0fb7c2d46e bash
 
-Construir una imagen en docker
-Generar el archivo Dockerfile y correr dentro del directorio de la API:
-docker build -t apiface_test .
-
-Correr una imagen en docker
-docker run -it -p 5000:5000 -d apiface_test --anda 03/02/22
-
-docker run -it -d apiface_test -p 5000:5000 --anda
-docker run -p 5000:5000 apiface_test
-
-Visualizar todos los containers
-docker container ls --all
-
-Eliminar un contenedor especifico:
-docker container rm --force contenedor
-
-Revisar el log de un contenedor
-docker container logs --details contenedor
-
-Ver todas las imagenes
-docker images
-
-Otro camino
-docker logs --tail 100 -f apipedidos_uat
+	Guardar cambios en un contenedor como una imagen nueva, de esta forma no se pierden los cambios
+		docker commit NombreDelcontenedor_o_id nombredelaimagen:tag
+		docker commit (nombre del contenedor o id)180f1ed455ad apiface_test(Nombre de la imagen)
 
 REVISAR EL CAMPO CONNECTIONSTRING DE LA TABLA COMPANY, FIJARSE BIEN LAS COMILLAS ESO ES LO QUE OCACIONA EL ERROR DE QUE NO PUEDE LEER LA BD
 
-Ejecutar en el cmd del contenedor
-docker exec -it 2a0fb7c2d46e bash
-
-
-Guardar cambios en un contenedor como una imagen nueva, de esta forma no se pierden los cambios
-docker commit NombreDelcontenedor_o_id nombredelaimagen:tag
-docker commit (nombre del contenedor o id)180f1ed455ad apiface_test(Nombre de la imagen)
 
 Conectarse al sftp
 sftp Neblockchain@10.153.5.92
