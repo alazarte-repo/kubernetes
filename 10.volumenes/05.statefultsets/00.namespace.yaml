@@ -1,9 +1,0 @@
-# https://www.youtube.com/watch?v=Gp6LNymkw70
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: statefulsets
-
-# A veces es necesario mantener pods persistentes a través del tiempo dado a que, por ejemplo, 
-# podemos utilizar pods para albergar una base de datos.
-# Basicamente un statefulset es un pod que siempre va a tener el mismo identificador y siempre va a mantener los archivos por mas que lo mates, usa volumenes para esto, eso es todo.

@@ -1,9 +1,0 @@
-# https://www.youtube.com/watch?v=zKnJQ7A2pFM
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: daemonsets
-
-# https://kubernetes.io/es/docs/concepts/workloads/controllers/daemonset/
-# Son deployments que se deployan para todos los nodos. 
-# Sirve para servicios de monitoreo o logs, de esta forma y se tiene la misma información en uno de los nodos donde este corriendo.

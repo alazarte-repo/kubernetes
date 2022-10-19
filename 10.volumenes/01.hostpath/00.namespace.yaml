@@ -1,7 +1,0 @@
-# https://www.youtube.com/watch?v=buHYhCyfTKk
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: hostpath
-
-  # https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-pod

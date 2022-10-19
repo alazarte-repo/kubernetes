@@ -1,7 +1,0 @@
-# https://www.youtube.com/watch?v=xTTJg1aJ4kg
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: env-request-and-limits
-
-# Para entrar a la consola de un pod ejecutamos: kubectl exec -it pod/hello-84f4b5bdf8-5mflz sh -n env-request-and-limits

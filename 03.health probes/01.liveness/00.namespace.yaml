@@ -1,9 +1,0 @@
-# https://www.youtube.com/watch?v=5gSc1ouW8rM
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: liveness
-# Sirve para saber si esta vivo. Por ejemplo si ejecutamos una aplicación en un pod que tarda en levantar, a través de Liveness Probe podemos configurar
-# de que se espere cierto tiempo para consultar sobre el estado del pod. Si el check falla se puede restartear el pod.
-
-# Existen 3 mecanismos para llevar a cabo este check.
