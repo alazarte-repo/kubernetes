@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-tcp
+  namespace: liveness
+spec:
+  containers:
+  - name: goproxy
+    image: k8s.gcr.io/goproxy:0.1 # Imagen de un servidor web que corre en el puerto 8080
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "10m"
+    ports:
+    - containerPort: 8080
+    livenessProbe:
+      tcpSocket: # Se hace un check a un puerto TCP del contenedor
+        port: 8081
+      initialDelaySeconds: 15 # Tiempo de delay antes de realizar el check
+      periodSeconds: 20

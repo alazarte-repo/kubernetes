@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: install-helm
+  namespace: gitlab-managed-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helm
+  template:
+    metadata:
+      labels:
+        app: helm
+    spec:
+      containers:
+      - name: helm
+        image: alpinelinux/gitlab-runner:latest
+        imagePullPolicy: IfNotPresent        
+        ports:
+        - containerPort: 8080
+
+#  kubectl exec -it pod/install-helm-65cb4fc994-qrvsr sh -n gitlab-managed-apps

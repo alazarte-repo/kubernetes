@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: statefulsets # Es muy parecido a un deployment en su estructura
+  labels:
+    app: mongo
+spec:
+  serviceName: "mongo" # Los nombres de las replicas se crean de forma enumerada sin utilizar hashes
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:3.4.1
+        imagePullPolicy: Always
+        command: # A través de este comando se crea un clúster de mongo.
+        - mongod
+        - --replSet
+        - rs0
+        ports:
+        - containerPort: 27017

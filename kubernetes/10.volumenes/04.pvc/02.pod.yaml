@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-01
+  namespace: pvc
+  labels:
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: www-volume
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+
+  volumes:
+  - name: www-volume
+    persistentVolumeClaim:
+      claimName: nginx-pvc
+
+# Para eliminar el volumen ejecuto:
+  # kubectl delete pvc nombre-del-pvc
+  # Aclaración: Si hay un pod que tiene atachado este volumen el mismo no se eliminara hasta tanto el pod no este corriendo.

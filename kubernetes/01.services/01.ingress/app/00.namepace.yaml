@@ -1,0 +1,6 @@
+# https://www.youtube.com/watch?v=pzFirwIpMag
+# https://www.youtube.com/watch?v=NPFbYpb0I7w
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-ingress

@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: downward
+
+# Compartir de la API de kubernetes dentro de los pods por medio de archivos

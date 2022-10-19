@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-01
+  namespace: configmap
+  labels:
+    app: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html #  Montalo en esta ruta
+      name: index #  Toma este volumen (que esta declarado más abajo)
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "100m"
+
+  volumes:
+  - name: index
+    configMap:
+      name: index-html
+      items:
+        - key: index.html # La sección del configmap donde estara la información
+          path: index.html # Ruta en donde esta dentro del pod

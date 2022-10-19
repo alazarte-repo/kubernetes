@@ -1,0 +1,13 @@
+#cloud-config
+# Documento acerca de este lenguaje:
+# https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+package_update: true
+packages:
+  - docker.io # Instala docker en la instancia
+runcmd:
+  - cd /root
+  - docker run --detach --hostname git.terraformgit.com --publish 80:80 --publish 2020:22 --name gitlab --restart always --volume /srv/gitlab/config:/etc/gitlab --volume /srv/gitlab/logs:/var/log/gitlab --volume /srv/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:latest
+  # Monta el volumen donde esta el archivo creado anteriormente para que cuando corra el contenedor lo muestre en lugar del archivo que viene por defecto
+
+# Es IMPRECINDIBLE que la primer linea no se modifique, forma parte de la sintaxis del archivo
+# Si el contenedor tiene problemas podemos ver el log: docker container logs --details container-id

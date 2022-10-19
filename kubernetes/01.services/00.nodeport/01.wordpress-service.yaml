@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  namespace: nodeport
+spec:
+  type: NodePort
+  selector:
+    role: wordpress
+  ports:
+  - port: 80
+    targetPort: 80 # Puerto que va a correr el contenedor
+    nodePort: 30000 # Puerto que va a correr en el nodo y que va a puntar al puerto 80 del contenedor
+# Este tipo de servicio crea un puerto en el worker que apunta al contenedor que nosotros creemos.
+# Para visualizar servicios:
+  # kubectl -n nodeport get services o svc
+# Este servicio sólo puede ser accedido si estas dentro del clúster, por ejemplo, desde un pod pero no desde un nodo. 
+  # Pertenece a una red interna de los pods

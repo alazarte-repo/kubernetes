@@ -1,0 +1,13 @@
+# https://www.youtube.com/watch?v=YbColFoz3ms
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: secrets
+# Son variables que se crean en el Namespace donde los deployment lo pueden acceder para hacer cosas y al mismo tiempo establecer privilegios
+
+# Para generarlo fue necesario ejecutar el siguiente comando:
+  # kubectl create secret docker-registry docker-secret --docker-server=https://index.docker.io/v1/ --docker-username=adriandockerimg --docker-password=Casares6281 --docker-email=adrianlazarte@live.com.ar --output=yaml --namespace=secrets
+  # Aclaración I: El secret creado lo hara en un namespace por defecto (default) a menos que le especifiquemos uno por parametro
+  # Aclaración II: El namespace donde albergara el Secret de Kubernetes debe estar previamente creado
+# Para obtener todos los Secrets creados se corre el siguiente comando:
+  # kubectl -n secrets get secrets

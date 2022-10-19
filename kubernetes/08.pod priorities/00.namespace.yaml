@@ -1,0 +1,15 @@
+# https://www.youtube.com/watch?v=s9Z-YluUOuw
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: pod-priorities
+
+# Priority Classes nos permite dar diferentes prioridades a diferentes pods, existen varios tipos de catalogación entre ellas:
+  
+  # Por un lado tenemos aquellas que existen en cualquier clúster de kubernetes, ambos poseen un número y el más alto es el más crítico
+    # system-cluster-critical
+    # system-node-critical
+  
+  # Por otro lado tenemos Priority Classes que podemos crear nosotros y eso es lo que vamos a hacer en este namespace
+
+# Esta bueno para catalogar pods de monitoreo y pods de servicios (menos importante)
