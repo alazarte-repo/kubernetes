@@ -65,6 +65,11 @@ docker run o simplemente ejecutar en el Dashboard
 		
 	Ejecutar en el cmd del contenedor
 		docker exec -it 2a0fb7c2d46e bash
+	Caso Linux:
+	ps aux
+
+	Con este comando podran verse los procesos que corren en el Docker Host:
+	docker run -it --rm --privileged --pid=host justincormack/nsenter1
 
 	Guardar cambios en un contenedor como una imagen nueva, de esta forma no se pierden los cambios
 		docker commit NombreDelcontenedor_o_id nombredelaimagen:tag
