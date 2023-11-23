@@ -47,6 +47,9 @@ docker run o simplemente ejecutar en el Dashboard
 		docker run c855470133c0 -p 8080:8080
 		
 # Contenedores
+	Correr un contenedor basado en una imagen sin necesidad de tener un dockerfile y entrar al bash de este contenedor usando una carpeta volumen creada en mi local
+	docker run -v /c/volumen/carpeta:/container/carpeta -i -t ubuntu  /bin/bash
+	
 	Ejecutar un contenedor que se encuentra parado
 		docker start nombre_container
 		
